@@ -1,24 +1,17 @@
-weights = [12, 6, 7, 14, 19, 3, 0, 25, 40]
-length = 9
-limit = 7
-
 def get_indices_of_item_weights(weights, length, limit):
     """
     YOUR CODE HERE
     """
-    # Your code here
-
+    # initialize cache
     cache = {}
 
+    # loop thru and add numbers together...add sums to cache if not already in there...make sure key is of index in order of larger to smaller
     i = 0
-    while i in range(length):
-    # for x in weights: 
+    while i in range(length): 
         j = 0
         while j in range(length) and i is not j:
             x = weights[i]
-            
             y = weights[j]
-            
             key = ()
             if i >= j: 
                 key = (i, j)
@@ -29,10 +22,7 @@ def get_indices_of_item_weights(weights, length, limit):
             j += 1
         i += 1
     
-
+    # return a list of the indices (which is the key) if the sum (value) is the limit
     for key, value in cache.items():
         if value == limit:
             return list(key)
-
-
-print(get_indices_of_item_weights(weights, length, limit))
